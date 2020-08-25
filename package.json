@@ -1,5 +1,7 @@
 {
   "name": "ba-rails-backend",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "axios": "^0.20.0"
+  }
 }
