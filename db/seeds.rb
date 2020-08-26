@@ -5,16 +5,28 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Airplane.create(
+print "Creating Airplanes... "
+Airplane.destroy_all
+
+a1 = Airplane.create(
   name:"747",
   row:24,
   column:4
 )
 
-Flight.create(
+puts "created #{ Airplane.count } Airplanes."
+
+print "Creating Flights... "
+Flight.destroy_all
+
+f1 = Flight.create(
   date:"28/Aug/2020",
   flight_number:747,
   origin:"Sydney",
   destination:"Melbourne",
-  airplane_id:3
+  airplane_id:a1.id
 )
+
+puts "created #{ Flight.count } Flights."
+
+a1.id << f1.airplane_id
