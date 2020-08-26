@@ -6,10 +6,17 @@ class AirplanesController < ApplicationController
     render json: Airplane.all
   end
 
+  def new
+    @airplane = Airplane.new
+  end
+
   def create
     @airplane = Airplane.new airplane_params
     @airplane.save
     redirect_to airplanes_path
+  end
+
+  def destroy
   end
 
   private

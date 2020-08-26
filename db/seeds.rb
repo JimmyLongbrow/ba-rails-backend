@@ -29,4 +29,4 @@ f1 = Flight.create(
 
 puts "created #{ Flight.count } Flights."
 
-a1.id << f1
+a1.flights << f1
