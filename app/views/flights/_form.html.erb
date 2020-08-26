@@ -1,24 +1,28 @@
 <%= form_for @flight do |f| %>
 
-  <%= f.label :date %>
+  <%= f.label :date, 'Date:'%><br>
   <%= f.text_field :date %>
   <br>
 
-  <%= f.label :flight_number %>
+  <%= f.label :flight_number, 'Flight Number:' %><br>
   <%= f.text_field :flight_number %>
   <br>
 
-  <%= f.label :origin %>
+  <%= f.label :origin, 'Origin:' %><br>
   <%= f.text_field :origin %>
   <br>
 
-  <%= f.label :destination %>
+  <%= f.label :destination, 'Destination:' %><br>
   <%= f.text_field :destination %>
   <br>
 
-  <%= f.label :airplane_id %>
-  <%= f.text_field :airplane_id %>
-  <br>
+  <div class="field">
+    <span>Airplane ID:</span><br>
+    <%= f.select :airplane_id, options_from_collection_for_select(Airplane.all, "id", "name") %>
+    <br>
+    <br>
+  </div>
+
 
 
   <%= f.submit %>

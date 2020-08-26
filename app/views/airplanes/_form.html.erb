@@ -1,15 +1,16 @@
 <%= form_for @airplane do |f| %>
 
-  <%= f.label :name %>
+  <%= f.label :name, 'Name:' %><br>
   <%= f.text_field :name %>
   <br>
 
-  <%= f.label :row %>
+  <%= f.label :row, 'Rows:' %><br>
   <%= f.text_field :row %>
   <br>
 
-  <%= f.label :column %>
+  <%= f.label :column, 'Columns:' %><br>
   <%= f.text_field :column %>
+  <br>
   <br>
 
   <%= f.submit %>
