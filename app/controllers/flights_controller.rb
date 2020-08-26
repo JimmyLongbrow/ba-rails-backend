@@ -2,12 +2,10 @@ class FlightsController < ApplicationController
 
   skip_before_action :verify_authenticity_token, raise: false
 
-  def new
-    @airplane = Airplane.new
-  end
-
   def create
-    @airplane = Airplane.create content: params[:content]
+    @flight = Flight.new flight_params
+    @flight.save
+    redirect_to flights_path
   end
 
   def index

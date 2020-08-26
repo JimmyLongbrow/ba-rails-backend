@@ -1,0 +1,26 @@
+<%= form_for @flights, html: {multipart: true}  do |f| %>
+
+  <%= f.label :date %>
+  <%= f.text_field :date %>
+  <br>
+
+  <%= f.label :flight_number %>
+  <%= f.text_field :flight_number %>
+  <br>
+
+  <%= f.label :origin %>
+  <%= f.text_field :origin %>
+  <br>
+
+  <%= f.label :destination %>
+  <%= f.text_field :destination %>
+  <br>
+
+  <%= f.label :airplane_id %>
+  <%= f.text_field :airplane_id %>
+  <br>
+
+
+  <%= f.submit %>
+
+<% end %>

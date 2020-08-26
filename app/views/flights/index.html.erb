@@ -1,2 +1,13 @@
-<h1>Flights#index</h1>
-<p>Find me in app/views/flights/index.html.erb</p>
+<h2>All Flights</h2>
+
+<ul>
+<% @flights.each do |f| %>
+  <li>
+    <%= @flight.date %>
+    <%= @flight.flight_number %>
+    <%= @flight.origin %>
+    <%= @flight.destination %>  
+    <%= @flight.airplane_id %>
+  </li>
+<% end %>
+</ul>

@@ -7,8 +7,16 @@ class AirplanesController < ApplicationController
   end
 
   def create
-    airplane = Airplane.create content: params[:content]
-    render json: airplane
+    @airplane = Airplane.new airplane_params
+    @airplane.save
+    redirect_to airplanes_path
   end
-  
+
+  private
+
+  def airplane_params
+    params.require(:airplane).permit(:name, :row, :column)
+
+  end
+
 end

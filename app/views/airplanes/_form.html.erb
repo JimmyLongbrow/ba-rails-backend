@@ -1,1 +1,16 @@
-<h1>Placeholder</h1>
+<%= form_for @airplanes, html: {multipart: true}  do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+
+  <%= f.label :row %>
+  <%= f.text_field :row %>
+  <br>
+
+  <%= f.label :column %>
+  <%= f.text_field :column %>
+  <br>
+
+  <%= f.submit %>
+<% end %>
