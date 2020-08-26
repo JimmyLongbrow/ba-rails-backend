@@ -9,7 +9,6 @@ class FlightsController < ApplicationController
 
   def create
     airplane = Airplane.create content: params[:content]
-    render json: airplane
   end
 
 end
