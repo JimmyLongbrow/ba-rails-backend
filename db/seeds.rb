@@ -59,23 +59,18 @@ a1.flights << f1
 a2.flights << f2
 a3.flights << f3
 a4.flights << f4
+a5.flights << f5
 
 puts "created #{ Flight.count } Flights."
-
-a1.flights << f1
-a2.flights << f2
-a3.flights << f3
-a4.flights << f4
-
 
 print "Creating Users... "
 User.destroy_all
 
 u1 = User.create(name:"Sir Richard Branson", admin:true)
-u2 = User.create(name:"Nemo", admin:true)
-u3 = User.create(name:"Danny")
-u4 = User.create(name:"Karthik")
-u5 = User.create(name:"Luke")
+u2 = User.create(name:"Nemo Petrovic", admin:true)
+u3 = User.create(name:"Danny Lai")
+u4 = User.create(name:"Karthik Sekar")
+u5 = User.create(name:"Luke Hammer")
 
 puts "created #{ User.count } Users."
 
@@ -87,7 +82,7 @@ r1 = Reservation.create(row:1,column:1)
 r2 = Reservation.create(row:2,column:2)
 r3 = Reservation.create(row:3,column:3)
 r4 = Reservation.create(row:4,column:4)
-r5 = Reservation.create(row:4,column:4)
+r5 = Reservation.create(row:5,column:4)
 
 
 f1.reservations << r1
@@ -96,10 +91,10 @@ f3.reservations << r3
 f4.reservations << r4
 f5.reservations << r5
 
-u1.reservations << r1 << r2
-u2.reservations << r3
-u3.reservations << r4
-u4.reservations << r2
+u1.reservations << r1
+u2.reservations << r2
+u3.reservations << r3
+u4.reservations << r4
 u5.reservations << r5
 
 puts "created #{ Reservation.count } Reservations."
