@@ -12,6 +12,7 @@ a1 = Airplane.create(name:"747",row:24,column:4)
 a2 = Airplane.create(name:"757",row:24,column:4)
 a3 = Airplane.create(name:"777",row:24,column:4)
 a4 = Airplane.create(name:"787",row:24,column:4)
+a5 = Airplane.create(name:"799",row:24,column:4)
 
 
 puts "created #{ Airplane.count } Airplanes."
@@ -19,10 +20,40 @@ puts "created #{ Airplane.count } Airplanes."
 print "Creating Flights... "
 Flight.destroy_all
 
-f1 = Flight.create( date:"28/Aug/2020",flight_number:747,origin:"Sydney",destination:"Melbourne")
-f2 = Flight.create( date:"20/Jan/2020",flight_number:757,origin:"Sydney",destination:"Melbourne")
-f3 = Flight.create( date:"8/Feb/2020",flight_number:777,origin:"Sydney",destination:"Melbourne")
-f4 = Flight.create( date:"28/Apr/2020",flight_number:787,origin:"Sydney",destination:"Melbourne")
+f1 = Flight.create(
+  date:"28/Aug/2020",
+  flight_number:747,
+  origin:"Sydney",
+  destination:"Melbourne"
+)
+
+f2 = Flight.create(
+  date:"20/Jan/2021",
+  flight_number:757,
+  origin:"Dubai",
+  destination:"Brisbane"
+)
+
+f3 = Flight.create(
+  date:"18/Feb/2021",
+  flight_number:777,
+  origin:"Bali",
+  destination:"Jakarta"
+)
+
+f4 = Flight.create(
+  date:"23/Dec/2020",
+  flight_number:787,
+  origin:"Tokyo",
+  destination:"Melbourne"
+)
+
+f5 = Flight.create(
+  date:"25/Nov/2020",
+  flight_number:799,
+  origin:"Glasgow",
+  destination:"London"
+)
 
 a1.flights << f1
 a2.flights << f2
@@ -53,19 +84,23 @@ print "Creating Reservations... "
 Reservation.destroy_all
 
 r1 = Reservation.create(row:1,column:1)
-r2 = Reservation.create(row:1,column:1)
-r3 = Reservation.create(row:1,column:1)
-r4 = Reservation.create(row:1,column:1)
+r2 = Reservation.create(row:2,column:2)
+r3 = Reservation.create(row:3,column:3)
+r4 = Reservation.create(row:4,column:4)
+r5 = Reservation.create(row:4,column:4)
 
 
 f1.reservations << r1
-f1.reservations << r1
-f1.reservations << r1
-f1.reservations << r1
+f2.reservations << r2
+f3.reservations << r3
+f4.reservations << r4
+f5.reservations << r5
 
 u1.reservations << r1 << r2
 u2.reservations << r3
 u3.reservations << r4
+u4.reservations << r2
+u5.reservations << r5
 
 puts "created #{ Reservation.count } Reservations."
 
@@ -74,3 +109,7 @@ puts "created #{ Reservation.count } Reservations."
 puts "Testing associations:"
 print "Bookings by #{ User.first.name }, Rows & Columns: "
 puts User.first.reservations.pluck(:row,:column).join(', ')
+
+puts "Testing associations:"
+print "Bookings by #{ User.last.name }, Rows & Columns: "
+puts User.last.reservations.pluck(:row,:column).join(', ')
