@@ -8,55 +8,68 @@
 print "Creating Airplanes... "
 Airplane.destroy_all
 
-a1 = Airplane.create(
-  name:"747",
-  row:24,
-  column:4
-)
+a1 = Airplane.create(name:"747",row:24,column:4)
+a2 = Airplane.create(name:"757",row:24,column:4)
+a3 = Airplane.create(name:"777",row:24,column:4)
+a4 = Airplane.create(name:"787",row:24,column:4)
+
 
 puts "created #{ Airplane.count } Airplanes."
 
 print "Creating Flights... "
 Flight.destroy_all
 
-f1 = Flight.create(
-  date:"28/Aug/2020",
-  flight_number:747,
-  origin:"Sydney",
-  destination:"Melbourne",
-  airplane_id:a1.id
-)
+f1 = Flight.create( date:"28/Aug/2020",flight_number:747,origin:"Sydney",destination:"Melbourne")
+f2 = Flight.create( date:"20/Jan/2020",flight_number:757,origin:"Sydney",destination:"Melbourne")
+f3 = Flight.create( date:"8/Feb/2020",flight_number:777,origin:"Sydney",destination:"Melbourne")
+f4 = Flight.create( date:"28/Apr/2020",flight_number:787,origin:"Sydney",destination:"Melbourne")
+
+a1.flights << f1
+a2.flights << f2
+a3.flights << f3
+a4.flights << f4
 
 puts "created #{ Flight.count } Flights."
 
 a1.flights << f1
+a2.flights << f2
+a3.flights << f3
+a4.flights << f4
 
 
 print "Creating Users... "
 User.destroy_all
 
-u1 = User.create(
-  name:"Sir Richard Branson",
-  admin:true
-)
+u1 = User.create(name:"Sir Richard Branson", admin:true)
+u2 = User.create(name:"Nemo", admin:true)
+u3 = User.create(name:"Danny")
+u4 = User.create(name:"Karthik")
+u5 = User.create(name:"Luke")
+
+puts "created #{ User.count } Users."
 
 
 print "Creating Reservations... "
 Reservation.destroy_all
 
-r1 = Reservation.create(
-  flight_id:f1.id,
-  user_id:u1.id,
-  row:1,
-  column:1
-)
+r1 = Reservation.create(row:1,column:1)
+r2 = Reservation.create(row:1,column:1)
+r3 = Reservation.create(row:1,column:1)
+r4 = Reservation.create(row:1,column:1)
+
+
+f1.reservations << r1
+f1.reservations << r1
+f1.reservations << r1
+f1.reservations << r1
+
+u1.reservations << r1 << r2
+u2.reservations << r3
+u3.reservations << r4
 
 puts "created #{ Reservation.count } Reservations."
 
-f1.reservations << r1
 
-puts "created #{ User.count } Users."
-u1.reservations << r1
 
 puts "Testing associations:"
 print "Bookings by #{ User.first.name }, Rows & Columns: "
